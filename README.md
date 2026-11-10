@@ -8,7 +8,7 @@ Source for the Holy Grawlix Games websites.
 | `site/index.html` | Full studio site (comic-book + 16-bit direction) | [grawlix-games.pages.dev](https://grawlix-games.pages.dev) |
 | `archive/grawlix-figma-v1/` | The earlier "Grawlix Games" site, kept for reference | [grawlix-games.pages.dev/archive](https://grawlix-games.pages.dev/archive) |
 
-Both live sites read their files straight from this repo's `main` branch, so a push goes live within a few minutes. Both are hidden from search engines for now. The contact form posts to the `respeclabs-contact` Cloudflare Worker (source in the respeclabs-site repo), which emails hello@respeclabs.com with "[Holy Grawlix]" in the subject.
+Both live sites read their files straight from this repo's `main` branch, so a push goes live within a few minutes. Both are hidden from search engines for now. The contact form posts to the `respeclabs-contact` Cloudflare Worker (source in the respeclabs-site repo), which emails hello@respeclabs.com with the subject "New message from <name> via the Holy Grawlix Games website".
 
 ## Brand (`brand/`)
 
