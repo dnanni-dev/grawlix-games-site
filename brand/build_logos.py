@@ -60,15 +60,18 @@ S = 200; ROT = -4; SW = 8; capH = CAP * S / UPM; TR = 6
 TITLE = 'Holy Grawlix Games'
 
 def horizontal(ink):
-    pad = 40; gap = 0.22 * S
+    # Optical spacing: Bangers' slanted Y overhangs its advance by ~0.138em and G starts ~0.042em in,
+    # so the gaps are set from the visible ink, not the letter boxes. VIS = visible gap to the burst edge.
+    pad = 40; VIS = 0.17 * S
+    gap_l = VIS + 0.138 * S; gap_r = VIS - 0.042 * S
     holy_w = adv('HOLY', S); games_w = adv('GAMES', S); sym_w = adv('#$@!', S, TR)
     bw, bh = sym_w + 0.62 * S, capH + 0.62 * S
-    W = pad + holy_w + gap + bw + gap + games_w + pad; H = bh + 2 * pad + 20
+    W = pad + holy_w + gap_l + bw + gap_r + games_w + pad + 0.03 * S; H = bh + 2 * pad + 20
     cy = H / 2; base = cy + capH / 2
     x = pad; body = text('HOLY', x, base, S, ink)
-    bx = x + holy_w + gap + bw / 2
+    bx = x + holy_w + gap_l + bw / 2
     body += burst(bx, cy, bw, bh, ROT, ink, SW) + grawlix_rows(['#$@!'], bx, cy, S, ROT, TR)
-    body += text('GAMES', bx + bw / 2 + gap, base, S, ink)
+    body += text('GAMES', bx + bw / 2 + gap_r, base, S, ink)
     return svg(W, H, body, TITLE)
 
 def stacked(ink):
@@ -101,4 +104,36 @@ files = {
 for n, s in files.items():
     open(os.path.join(OUT, n), 'w').write(s); print(n, len(s))
 # Width of the one-line lockup in em (for the website's layout switch)
-print('ONE_LINE_EM', round((adv('HOLY', 1) + 0.22 + adv('#$@!', 1, TR / S) + 0.62 + 0.22 + adv('GAMES', 1)), 3))
+print('ONE_LINE_EM', round((adv('HOLY', 1) + 0.308 + adv('#$@!', 1, TR / S) + 0.62 + 0.128 + adv('GAMES', 1)), 3))
+
+# ---------- Icon (simplified burst, few symbols fully inside) ----------
+def icon_burst(c, r_out, r_in, n, rot, stroke, sw, jitter):
+    pts = []
+    for i in range(2 * n):
+        r = (r_out if i % 2 == 0 else r_in) * jitter[i % len(jitter)]
+        a = math.radians(rot + i * 180 / n - 90)
+        pts.append(f'{c + r*math.cos(a):.1f},{c + r*math.sin(a):.1f}')
+    return f'<polygon points="{" ".join(pts)}" fill="{YELLOW}" stroke="{stroke}" stroke-width="{sw}" stroke-linejoin="round"/>'
+
+JIT = [1.0, 1.0, .93, 1.0, 1.04, 1.0, .95, 1.0, 1.02, 1.0, .92, 1.0, 1.03, 1.0, .96, 1.0, 1.0, 1.0, .94, 1.0]
+
+def icon_v2(chars, size, bg=None, dy=0, track=0):
+    W = 512; c = W / 2
+    body = f'<rect width="512" height="512" rx="112" fill="{bg}"/>' if bg else ''
+    k = 0.78 if bg else 1.0
+    body += icon_burst(c, 246 * k, 196 * k, 10, -4, CREAM if bg else BLACK, (16 if bg else 20), JIT)
+    w = adv(chars, size * k, track)
+    base = c + CAP * size * k / UPM / 2 + dy * k
+    body += f'<g transform="rotate(-4 {c} {c})">{text(chars, c - w / 2 - 0.03 * size * k, base, size * k, BLACK, track)}</g>'
+    return svg(W, W, body, 'Holy Grawlix Games icon')
+
+# Chosen icon: '#!' in the simplified burst (option B)
+open(os.path.join(OUT, 'holygrawlix-icon.svg'), 'w').write(icon_v2('#!', 300, None, 0, 4))
+open(os.path.join(OUT, 'holygrawlix-icon-app.svg'), 'w').write(icon_v2('#!', 300, BLACK, 0, 4))
+
+if len(sys.argv) > 3 and sys.argv[3] == 'icon-options':
+    opts = {'A-bang': ('!', 360, 0, 0), 'B-hash-bang': ('#!', 300, 0, 4), 'C-at-bang': ('@!', 250, 0, 4), 'D-hash': ('#', 330, 0, 0)}
+    for k_, (ch, sz, dy, tr) in opts.items():
+        open(os.path.join(OUT, f'opt-{k_}.svg'), 'w').write(icon_v2(ch, sz, None, dy, tr))
+        open(os.path.join(OUT, f'opt-{k_}-app.svg'), 'w').write(icon_v2(ch, sz, BLACK, dy, tr))
+    print('options written')
