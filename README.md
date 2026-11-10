@@ -8,8 +8,8 @@ Source for [holygrawlix.com](https://holygrawlix.com). The current `index.html` 
 |---|---|
 | `logo/holygrawlix-horizontal-{dark,light}.svg/.png` | Rectangular lockup, one line: HOLY [#$@!] GAMES |
 | `logo/holygrawlix-stacked-{dark,light}.svg/.png` | Square lockup, three rows: HOLY / [#$@!] / GAMES |
-| `logo/holygrawlix-icon.svg` | Icon-only mark: "#!" in a simplified burst, transparent (favicon) |
-| `logo/icon-options/` | Alternative icon explorations (!, @!, #) kept for comparison |
+| `logo/holygrawlix-icon.svg` | Icon-only mark: "#!" in the logo's burst shape, transparent (favicon). Deliberately irregular, not a regular toothed badge |
+| `logo/icon-options/` | Alternative icon shapes (speech balloon, shout balloon) kept for comparison |
 | `logo/holygrawlix-icon-app.svg` | Icon on a dark rounded square (app / social avatar) |
 | `icons/` | Favicons (32, 48), Apple touch icon (180), 192 / 512 app icons |
 

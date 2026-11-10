@@ -127,9 +127,6 @@ def icon_v2(chars, size, bg=None, dy=0, track=0):
     body += f'<g transform="rotate(-4 {c} {c})">{text(chars, c - w / 2 - 0.03 * size * k, base, size * k, BLACK, track)}</g>'
     return svg(W, W, body, 'Holy Grawlix Games icon')
 
-# Chosen icon: '#!' in the simplified burst (option B)
-open(os.path.join(OUT, 'holygrawlix-icon.svg'), 'w').write(icon_v2('#!', 300, None, 0, 4))
-open(os.path.join(OUT, 'holygrawlix-icon-app.svg'), 'w').write(icon_v2('#!', 300, BLACK, 0, 4))
 
 if len(sys.argv) > 3 and sys.argv[3] == 'icon-options':
     opts = {'A-bang': ('!', 360, 0, 0), 'B-hash-bang': ('#!', 300, 0, 4), 'C-at-bang': ('@!', 250, 0, 4), 'D-hash': ('#', 330, 0, 0)}
@@ -137,3 +134,70 @@ if len(sys.argv) > 3 and sys.argv[3] == 'icon-options':
         open(os.path.join(OUT, f'opt-{k_}.svg'), 'w').write(icon_v2(ch, sz, None, dy, tr))
         open(os.path.join(OUT, f'opt-{k_}-app.svg'), 'w').write(icon_v2(ch, sz, BLACK, dy, tr))
     print('options written')
+
+# ---------- Icon v3: comic shapes (no regular gear-like teeth) ----------
+from fontTools.pens.boundsPen import BoundsPen
+def ink_bounds(s, size, track=0):
+    """Ink bounds of a string laid out from x=0 on baseline y=0 (SVG coords, y down)."""
+    k = size / UPM; x = 0; xs = []; ys = []
+    for ch in s:
+        g = cmap[ord(ch)]; bp = BoundsPen(gs); gs[g].draw(bp)
+        if bp.bounds:
+            x0, y0, x1, y1 = bp.bounds
+            xs += [x + x0 * k, x + x1 * k]; ys += [-y1 * k, -y0 * k]
+        x += hm[g][0] * k + track
+    return min(xs), min(ys), max(xs), max(ys)
+
+def centered_text(s, cx, cy, size, fill, track=0, rot=-4):
+    x0, y0, x1, y1 = ink_bounds(s, size, track)
+    x = cx - (x0 + x1) / 2; base = cy - (y0 + y1) / 2   # centre the actual ink, not the letter boxes
+    return f'<g transform="rotate({rot} {cx:.1f} {cy:.1f})">{text(s, x, base, size, fill, track)}</g>'
+
+def balloon_path(cx, cy, rx, ry, a1, a2, tip):
+    """Ellipse with a speech tail: arc from angle a1 round to a2 (degrees), then out to the tail tip."""
+    p = lambda a: (cx + rx * math.cos(math.radians(a)), cy + ry * math.sin(math.radians(a)))
+    (x1, y1), (x2, y2) = p(a1), p(a2)
+    return f'M{x1:.1f},{y1:.1f} A{rx},{ry} 0 1 1 {x2:.1f},{y2:.1f} L{tip[0]:.1f},{tip[1]:.1f} Z'
+
+def jag_balloon(cx, cy, rx, ry, n, tip, seed):
+    import random; rnd = random.Random(seed); pts = []
+    for i in range(2 * n):
+        a = 2 * math.pi * i / (2 * n) - math.pi / 2
+        r = (1.0 if i % 2 == 0 else 0.84) * (1 + rnd.uniform(-.07, .07))
+        pts.append((cx + rx * r * math.cos(a), cy + ry * r * math.sin(a)))
+    # splice a tail in at the lower left
+    j = int(2 * n * 0.62)
+    pts = pts[:j] + [tip] + pts[j:]
+    return 'M' + ' L'.join(f'{x:.1f},{y:.1f}' for x, y in pts) + ' Z'
+
+def icon_v3(kind, bg=None):
+    W = 512; c = 256; k = 0.8 if bg else 1.0
+    T = lambda x: c + (x - c) * k     # scale toward centre for the app version
+    stroke = CREAM if bg else BLACK; sw = 16 if bg else 20
+    body = f'<rect width="512" height="512" rx="112" fill="{bg}"/>' if bg else ''
+    if kind == 'speech':
+        d = balloon_path(T(262), T(232), 214 * k, 178 * k, 118, 92, (T(118), T(476)))
+        body += f'<path d="{d}" fill="{YELLOW}" stroke="{stroke}" stroke-width="{sw}" stroke-linejoin="round"/>'
+        body += centered_text('#!', T(262), T(234), 236 * k, BLACK, 4)
+    elif kind == 'shout':
+        d = jag_balloon(T(262), T(236), 226 * k, 190 * k, 9, (T(104), T(482)), 7)
+        body += f'<path d="{d}" fill="{YELLOW}" stroke="{stroke}" stroke-width="{sw}" stroke-linejoin="round"/>'
+        body += centered_text('#!', T(262), T(236), 210 * k, BLACK, 4)
+    elif kind == 'logoburst':
+        pts = []; a = math.radians(-4); w, h = 440 * k, 330 * k
+        for px, py in BURST:
+            x = (px / 100 - .5) * w; y = (py / 100 - .5) * h
+            pts.append(f'{c + x*math.cos(a) - y*math.sin(a):.1f},{c + x*math.sin(a) + y*math.cos(a):.1f}')
+        body += f'<polygon points="{" ".join(pts)}" fill="{YELLOW}" stroke="{stroke}" stroke-width="{sw}" stroke-linejoin="round"/>'
+        body += centered_text('#!', c, c, 200 * k, BLACK, 4)
+    return svg(W, W, body, 'Holy Grawlix Games icon')
+
+if len(sys.argv) > 3 and sys.argv[3] == 'icon-v3':
+    for kind in ['speech', 'shout', 'logoburst']:
+        open(os.path.join(OUT, f'v3-{kind}.svg'), 'w').write(icon_v3(kind))
+        open(os.path.join(OUT, f'v3-{kind}-app.svg'), 'w').write(icon_v3(kind, BLACK))
+    print('v3 written')
+
+# Chosen icon: '#!' in the logo's own burst shape (irregular, deliberately not gear-like)
+open(os.path.join(OUT, 'holygrawlix-icon.svg'), 'w').write(icon_v3('logoburst'))
+open(os.path.join(OUT, 'holygrawlix-icon-app.svg'), 'w').write(icon_v3('logoburst', BLACK))
