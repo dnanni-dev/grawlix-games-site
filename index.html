@@ -4,83 +4,333 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grawlix Games</title>
-<meta name="description" content="Grawlix Games — an independent game studio. Coming soon.">
+<meta name="description" content="Grawlix Games is a solo independent game studio built on 25+ years of AAA game development.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #14110f;
-    --fg: #f2ead8;
-    --muted: #9c917c;
-    --accent: #e8a33d;
-    --accent-2: #c8553d;
+    --paper: #f3f0e7;
+    --ink: #191b18;
+    --orange: #ff5c35;
+    --rule: #c9c8bc;
+    --muted: #65675e;
+    --muted-dark: #b8baae;
+    --card: #232620;
+    --card-rule: #505448;
+    --gutter: 64px;
+    --max: 1440px;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   }
-  * { box-sizing: border-box; margin: 0; }
-  html, body { height: 100%; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    display: grid;
-    place-items: center;
-    padding: 24px 16px;
-    overflow-x: hidden;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .mono { font-family: var(--mono); font-weight: 400; text-transform: uppercase; }
+  .black { font-weight: 900; text-transform: uppercase; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink); color: var(--paper);
+    font-weight: 700; font-size: 15px; line-height: 1.1;
+    height: 54px; padding: 0 22px; border: 0; cursor: pointer;
+    transition: background .15s ease, color .15s ease;
   }
-  main { max-width: 640px; width: 100%; text-align: center; }
-  .grawlix {
-    font-family: "Space Mono", ui-monospace, monospace;
-    font-size: clamp(40px, 12vw, 88px);
-    letter-spacing: 0.04em;
-    line-height: 1;
-    color: var(--accent);
-    user-select: none;
+  .btn:hover { background: var(--orange); color: var(--ink); }
+  .btn:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+
+  /* Navigation */
+  .nav .wrap { display: flex; align-items: center; height: 100px; border-bottom: 1px solid var(--rule); max-width: calc(var(--max) - 2 * var(--gutter)); padding: 0; margin: 0 var(--gutter); }
+  @media (min-width: 1440px) { .nav .wrap { margin: 0 auto; } }
+  .wordmark { font-weight: 900; line-height: 1; width: 120px; display: block; }
+  .wordmark .w1 { font-size: 24px; letter-spacing: 0.5px; line-height: 30px; display: block; color: var(--ink); }
+  .wordmark .w2 { font-size: 26px; letter-spacing: 11.33px; line-height: 29px; display: block; color: var(--orange); padding-left: 12px; }
+  .wordmark .w3 { font-size: 22px; letter-spacing: 9.25px; line-height: 25px; display: block; color: var(--ink); }
+  .nav-links { display: flex; gap: 45px; margin-left: auto; margin-right: 132px; font-size: 12px; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav .btn { width: 196px; }
+
+  /* Hero */
+  .hero .wrap { position: relative; padding-top: 49px; padding-bottom: 63px; display: grid; grid-template-columns: 1fr 316px; column-gap: 24px; }
+  .eyebrow { font-size: 13px; line-height: 1.1; grid-column: 1 / -1; }
+  .hero h1 { font-size: 108px; line-height: 0.94; letter-spacing: -0.06em; margin-top: 34px; margin-left: -7px; }
+  .emblem {
+    background: var(--orange); width: 316px; height: 328px; margin-top: 53px; position: relative;
+    display: grid; grid-template-columns: 120px 120px; column-gap: 16px; justify-content: center; align-content: start; padding-top: 12px;
   }
-  .grawlix span { display: inline-block; transition: transform .2s ease, color .2s ease; }
-  .grawlix span:nth-child(even) { color: var(--accent-2); }
-  .grawlix:hover span { transform: translateY(-6px) rotate(-8deg); }
-  .grawlix:hover span:nth-child(even) { transform: translateY(4px) rotate(10deg); }
-  h1 {
-    margin-top: 28px;
-    font-size: clamp(32px, 7vw, 56px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  .emblem span { font-weight: 900; font-size: 124px; line-height: 136px; text-align: center; height: 136px; transition: transform .2s ease; }
+  .emblem span.at { font-size: 93px; line-height: 136px; margin-top: -5px; }
+  .emblem span:nth-child(3), .emblem span:nth-child(4) { margin-top: -5px; }
+  .emblem:hover span:nth-child(odd) { transform: rotate(-8deg) translateY(-4px); }
+  .emblem:hover span:nth-child(even) { transform: rotate(8deg) translateY(3px); }
+  .emblem .cap { position: absolute; left: 20px; top: 300px; font-size: 10px; line-height: 1.1; }
+  .hero-intro { font-size: 23px; line-height: 1.1; margin-top: 36px; }
+  .hero .btn { margin-top: 44px; width: 238px; }
+  .hero-side { align-self: end; color: var(--muted); font-size: 14px; line-height: 1.1; margin-left: -22px; padding-bottom: 10px; margin-top: 103px; }
+
+  /* Strip */
+  .strip { background: var(--orange); }
+  .strip .wrap { height: 62px; display: flex; align-items: center; font-weight: 500; font-size: 14px; white-space: pre; overflow: hidden; }
+
+  /* Project teaser */
+  .project { background: var(--ink); color: var(--paper); }
+  .project .wrap { padding-top: 59px; padding-bottom: 92px; display: grid; grid-template-columns: 1fr 552px; column-gap: 24px; }
+  .label { font-size: 13px; line-height: 1.2; }
+  .status { font-size: 12px; line-height: 1.2; color: var(--orange); justify-self: end; width: 236px; white-space: pre; }
+  .project h2 { font-size: 76px; line-height: 0.96; letter-spacing: -0.05em; margin-top: 62px; margin-left: -4px; }
+  .project-desc { color: var(--muted-dark); font-size: 20px; line-height: 1.2; margin-top: 42px; max-width: 610px; }
+  .project-promise { color: var(--orange); font-size: 13px; margin-top: 107px; }
+  .card { background: var(--card); border: 1px solid var(--card-rule); height: 448px; margin-top: 65px; padding: 24px 24px 0; position: relative; }
+  .card-cat { color: var(--muted-dark); font-size: 12px; white-space: pre; }
+  .card hr { border: 0; height: 1px; background: var(--card-rule); margin-top: 26px; }
+  .card .qqq { color: var(--orange); font-size: 166px; line-height: 1.2; letter-spacing: -0.07em; margin-top: 30px; margin-left: 10px; height: 199px; }
+  .card .soon { font-size: 40px; line-height: 1.2; margin-top: 4px; margin-left: 4px; }
+  .card .cap { color: var(--muted-dark); font-size: 11px; margin-top: 40px; margin-left: 4px; }
+
+  /* About */
+  .about .wrap { padding-top: 60px; padding-bottom: 80px; display: grid; grid-template-columns: 672px 552px; justify-content: space-between; column-gap: 24px; }
+  .about .label { grid-column: 1 / -1; }
+  .about h2 { font-size: 70px; line-height: 0.98; letter-spacing: -0.05em; margin-top: 54px; margin-left: -4px; }
+  .metrics { border-top: 1px solid var(--rule); margin-top: 65px; padding-top: 23px; display: flex; gap: 0; }
+  .metric { display: flex; align-items: flex-start; }
+  .metric b { font-weight: 900; font-size: 70px; line-height: 1.2; }
+  .metric small { font-family: var(--mono); text-transform: uppercase; font-size: 12px; line-height: 1.2; color: var(--muted); margin-top: 20px; }
+  .metric.m1 b { width: 203px; }
+  .metric.m1 small { width: 260px; }
+  .metric.m2 b { width: 119px; }
+  .about-right { margin-top: 61px; }
+  .about-lead { font-weight: 500; font-size: 24px; line-height: 1.2; }
+  .about-body { color: var(--muted); font-size: 18px; line-height: 1.45; margin-top: 31px; }
+  .about-body p + p { margin-top: 26px; }
+
+  /* Elsewhere */
+  .elsewhere .wrap > .inner { border-top: 1px solid var(--rule); padding-top: 40px; padding-bottom: 78px; }
+  .elsewhere h2 { font-size: 36px; line-height: 1.2; margin-top: 25px; margin-left: -2px; }
+  .links { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 32px; margin-top: 32px; }
+  .links a { display: block; border-top: 1px solid var(--rule); padding-top: 21px; }
+  .links a strong { font-weight: 700; font-size: 25px; line-height: 1.2; display: block; transition: color .15s ease; }
+  .links a span { color: var(--muted); font-size: 15px; line-height: 1.2; display: block; margin-top: 16px; }
+  .links a:hover strong { color: var(--orange); }
+
+  /* Contact */
+  .contact { background: var(--orange); }
+  .contact .wrap { padding-top: 42px; padding-bottom: 60px; display: grid; grid-template-columns: 1fr 552px; column-gap: 24px; }
+  .contact h2 { font-size: 92px; line-height: 1.2; letter-spacing: -0.06em; margin-top: 50px; margin-left: -6px; }
+  .contact-invite { font-size: 22px; line-height: 1.2; margin-top: 21px; max-width: 670px; }
+  .contact-note { font-size: 12px; margin-top: 68px; }
+  form { padding-top: 2px; }
+  .row { display: grid; grid-template-columns: 260px 268px; column-gap: 24px; }
+  .field label { display: block; font-family: var(--mono); text-transform: uppercase; font-size: 11px; line-height: 1.2; margin-bottom: 11px; }
+  .field input, .field textarea {
+    width: 100%; background: var(--paper); border: 0; color: var(--ink);
+    font: 400 16px/1.2 var(--sans); padding: 17px 16px;
   }
-  p.tag {
-    margin-top: 12px;
-    color: var(--muted);
-    font-size: clamp(16px, 2.6vw, 19px);
+  .field input { height: 54px; }
+  .field textarea { height: 121px; resize: vertical; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: 1; }
+  .field.msg { margin-top: 23px; }
+  form .btn { width: 100%; height: 56px; margin-top: 23px; justify-content: space-between; font-size: 14px; }
+  form .btn i { font-style: normal; font-weight: 400; font-size: 23px; }
+  .form-note { font-family: var(--mono); font-size: 11px; line-height: 1.3; margin-top: 12px; min-height: 14px; }
+
+  /* Footer */
+  .footer { background: var(--ink); color: var(--paper); }
+  .footer .wrap { height: 100px; display: grid; grid-template-columns: 502px 1fr auto; align-items: center; }
+  .footer .fw { font-weight: 900; font-size: 20px; }
+  .footer .copy { color: var(--muted-dark); font-family: var(--mono); font-size: 12px; }
+  .footer .sign { font-size: 11px; }
+
+  /* Responsive */
+  @media (max-width: 1280px) {
+    :root { --gutter: 40px; }
+    .hero h1 { font-size: clamp(56px, 7.5vw, 108px); }
+    .project .wrap, .contact .wrap { grid-template-columns: 1fr minmax(0, 480px); }
+    .about .wrap { grid-template-columns: 1fr minmax(0, 480px); }
+    .row { grid-template-columns: 1fr 1fr; }
+    .nav-links { margin-right: 48px; }
+    .footer .wrap { grid-template-columns: 1fr 1fr auto; }
   }
-  .soon {
-    display: inline-block;
-    margin-top: 36px;
-    padding: 10px 18px;
-    border: 1px solid var(--muted);
-    border-radius: 999px;
-    font-family: "Space Mono", ui-monospace, monospace;
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--fg);
-  }
-  footer {
-    position: fixed; bottom: 16px; left: 0; right: 0;
-    text-align: center; font-size: 12px; color: var(--muted);
+  @media (max-width: 900px) {
+    :root { --gutter: 20px; }
+    .nav-links { display: none; }
+    .nav .wrap { justify-content: space-between; }
+    .nav .btn { width: auto; margin-left: auto; }
+    .hero .wrap, .project .wrap, .about .wrap, .contact .wrap { grid-template-columns: 1fr; }
+    .hero h1 { font-size: clamp(48px, 13vw, 96px); margin-top: 24px; }
+    .emblem { margin-top: 36px; grid-row: auto; }
+    .hero-side { margin-left: 0; margin-top: 28px; }
+    .hero-intro { font-size: 19px; }
+    .strip .wrap { font-size: 12px; white-space: normal; height: auto; padding-top: 18px; padding-bottom: 18px; line-height: 1.5; }
+    .status { justify-self: start; margin-top: 8px; }
+    .project h2 { font-size: clamp(44px, 12vw, 76px); margin-top: 36px; }
+    .project-promise { margin-top: 36px; }
+    .card { margin-top: 40px; height: auto; padding-bottom: 28px; }
+    .card .qqq { font-size: clamp(96px, 30vw, 166px); height: auto; }
+    .card .cap { margin-top: 20px; }
+    .about h2 { font-size: clamp(44px, 11vw, 70px); }
+    .metrics { flex-wrap: wrap; row-gap: 12px; }
+    .metric.m1 b, .metric.m2 b { width: auto; margin-right: 16px; }
+    .metric.m1 small { width: auto; margin-right: 32px; }
+    .about-right { margin-top: 40px; }
+    .links { grid-template-columns: 1fr; row-gap: 28px; }
+    .elsewhere h2 { font-size: 28px; }
+    .contact h2 { font-size: clamp(56px, 16vw, 92px); margin-top: 24px; }
+    .contact-note { margin-top: 28px; margin-bottom: 36px; }
+    .row { grid-template-columns: 1fr; row-gap: 20px; }
+    .footer .wrap { grid-template-columns: 1fr; height: auto; padding-top: 28px; padding-bottom: 28px; row-gap: 10px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .grawlix span { transition: none; }
+    html { scroll-behavior: auto; }
+    .emblem span { transition: none; }
   }
 </style>
 </head>
 <body>
-<main>
-  <div class="grawlix" aria-hidden="true"><span>@</span><span>#</span><span>$</span><span>%</span><span>&amp;</span><span>!</span></div>
-  <h1>Grawlix Games</h1>
-  <p class="tag">An independent game studio.</p>
-  <div class="soon">Coming soon</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#top" aria-label="Grawlix Games home">
+      <span class="w1">GRAWLIX</span>
+      <span class="w2" aria-hidden="true">$&amp;!#</span>
+      <span class="w3">GAMES</span>
+    </a>
+    <nav class="nav-links mono" aria-label="Main">
+      <a href="#project">The project</a>
+      <a href="#studio">The studio</a>
+    </nav>
+    <a class="btn" href="#contact">LET’S TALK&nbsp;&nbsp;↗</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow mono">Independent studio. Industry roots.</p>
+      <div>
+        <h1 class="black">Small studio.<br>Big game<br>energy.</h1>
+        <p class="hero-intro">One developer. 25+ years in AAA.<br>A new chapter in making games worth playing.</p>
+        <a class="btn" href="#project">SEE WHAT’S NEXT&nbsp;&nbsp;↓</a>
+      </div>
+      <div>
+        <div class="emblem" aria-hidden="true">
+          <span>!</span><span>?</span><span class="at">@</span><span>#</span>
+          <p class="cap mono">A little loud. By design.</p>
+        </div>
+        <p class="hero-side">Independent by choice.<br>Experienced by any measure.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-label="Studio values">
+    <div class="wrap">SOLO DEVELOPED     /     AAA EXPERIENCE     /     GAMEPLAY FIRST     /     SOMETHING NEW IS COMING</div>
+  </div>
+
+  <section class="project" id="project">
+    <div class="wrap">
+      <div>
+        <p class="label mono">01 / The next chapter</p>
+        <h2 class="black">Something<br>good is<br>brewing.</h2>
+        <p class="project-desc">The first Grawlix Games project is taking shape.<br>No big reveal just yet. Good things take making.</p>
+        <p class="project-promise mono">A new game. More to come.</p>
+      </div>
+      <div>
+        <p class="status mono">●  In development</p>
+        <div class="card">
+          <p class="card-cat mono">Grawlix Games     /     Project 001</p>
+          <hr>
+          <p class="qqq black" aria-hidden="true">???</p>
+          <p class="soon black">Coming soon</p>
+          <p class="cap mono">Not ready to show. Ready to surprise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="studio">
+    <div class="wrap">
+      <p class="label mono">02 / The human behind the games</p>
+      <div>
+        <h2 class="black">One person.<br>A lot of XP.</h2>
+        <div class="metrics">
+          <div class="metric m1"><b>25+</b><small>Years in AAA<br>development</small></div>
+          <div class="metric m2"><b>01</b><small>Independent<br>developer</small></div>
+        </div>
+      </div>
+      <div class="about-right">
+        <p class="about-lead">Grawlix Games is a solo independent studio built on more than 25 years of professional AAA game development.</p>
+        <div class="about-body">
+          <p>After helping ship many games, it’s time for something personal: taking that hard-earned experience and putting it into a new game, made independently.</p>
+          <p>A small studio with a long history of getting games into players’ hands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="elsewhere">
+    <div class="wrap">
+      <div class="inner">
+        <p class="label mono">03 / Good company</p>
+        <h2 class="black">There’s a whole world to play.</h2>
+        <div class="links">
+          <a href="https://store.steampowered.com/" target="_blank" rel="noopener"><strong>Steam&nbsp;&nbsp;↗</strong><span>Explore PC games</span></a>
+          <a href="https://itch.io/" target="_blank" rel="noopener"><strong>itch.io&nbsp;&nbsp;↗</strong><span>Discover independent games</span></a>
+          <a href="https://www.gamedeveloper.com/" target="_blank" rel="noopener"><strong>Game Developer&nbsp;&nbsp;↗</strong><span>Inside the craft of making games</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="label mono">04 / Open a conversation</p>
+        <h2 class="black">Let’s talk.</h2>
+        <p class="contact-invite">Press, potential collaborators, fellow developers, or just a friendly hello. I’d love to hear from you.</p>
+        <p class="contact-note mono">Direct to the person making the game.</p>
+      </div>
+      <form id="contact-form" novalidate>
+        <div class="row">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
+        </div>
+        <div class="field msg"><label for="f-msg">What’s on your mind?</label><textarea id="f-msg" name="message" placeholder="Tell me a little about it…" required></textarea></div>
+        <button class="btn" type="submit"><span>SEND MESSAGE</span><i aria-hidden="true">↗</i></button>
+        <p class="form-note" id="form-note" role="status"></p>
+      </form>
+    </div>
+  </section>
 </main>
-<footer>&copy; <span id="y">2026</span> Grawlix Games</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<footer class="footer">
+  <div class="wrap">
+    <span class="fw">GRAWLIX GAMES</span>
+    <span class="copy">© <span id="yr">2026</span> Grawlix Games. All rights reserved.</span>
+    <span class="sign mono">Small studio. Big game energy.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  (function () {
+    var form = document.getElementById('contact-form');
+    var note = document.getElementById('form-note');
+    // Address assembled at runtime to keep it out of the page source for scrapers.
+    var to = ['dan.nanni', 'gmail.com'].join('@');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.name.value.trim(), email = form.email.value.trim(), msg = form.message.value.trim();
+      if (!name || !email || !msg) { note.textContent = 'Please fill in all three fields.'; return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { note.textContent = 'That email address doesn’t look right.'; return; }
+      var subject = 'Grawlix Games: message from ' + name;
+      var body = msg + '\n\n— ' + name + ' (' + email + ')';
+      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      note.textContent = 'Opening your email app to send…';
+    });
+  })();
+</script>
 </body>
 </html>
