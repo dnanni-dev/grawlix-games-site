@@ -136,7 +136,10 @@
   .consult .label{display:inline-block;padding:2px 8px;background:var(--ink);color:var(--yellow);font-size:12px}
   .consult strong{display:block;margin-top:12px;font-family:var(--display);font-weight:400;font-size:34px;letter-spacing:.02em;line-height:1}
   .consult span:not(.label){display:block;margin-top:8px;font-size:17px;color:var(--muted)}
-  .consult em{display:inline-block;margin-top:14px;font-style:normal;font-weight:700;border-bottom:3px solid var(--red)}
+  .consult span.rl-plate{position:relative;display:inline-block;margin-top:18px;transform:rotate(-1.5deg);box-shadow:5px 5px 0 var(--yellow),5px 5px 0 3px var(--ink);transition:transform .15s}
+  .rl-plate img{display:block;width:280px;max-width:100%;height:auto}
+  .rl-plate i{position:absolute;top:-12px;right:-12px;width:30px;height:30px;display:grid;place-items:center;background:var(--red);color:#fff;font-style:normal;font-weight:700;font-size:16px;border:3px solid var(--ink);border-radius:50%}
+  .consult:hover .rl-plate{transform:rotate(0deg) scale(1.03)}
 
   /* 03 Links */
   .links{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
@@ -289,7 +292,7 @@
           <span class="label">Side quest</span>
           <strong>Want that XP on your team?</strong>
           <span>I also help studios, leads, and schools through my consulting practice, Respec Labs.</span>
-          <em>Visit Respec Labs ↗</em>
+          <span class="rl-plate"><img src="/brand/logo/partners/respeclabs-comic-black-yellow.svg" alt="Visit Respec Labs" width="351" height="89" loading="lazy"><i aria-hidden="true">↗</i></span>
         </a>
       </div>
     </div>
