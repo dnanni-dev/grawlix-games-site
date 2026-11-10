@@ -131,6 +131,12 @@
   .anim .xp.in .xp-bar i{transform:none}
   .copy p{font-size:20px;margin-bottom:18px}
   .copy p.big{font-size:24px;font-weight:700;line-height:1.4}
+  .consult{display:block;margin-top:28px;background:var(--paper);padding:22px 24px;text-decoration:none;transition:transform .12s,box-shadow .12s}
+  .consult:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+  .consult .label{display:inline-block;padding:2px 8px;background:var(--ink);color:var(--yellow);font-size:12px}
+  .consult strong{display:block;margin-top:12px;font-family:var(--display);font-weight:400;font-size:34px;letter-spacing:.02em;line-height:1}
+  .consult span:not(.label){display:block;margin-top:8px;font-size:17px;color:var(--muted)}
+  .consult em{display:inline-block;margin-top:14px;font-style:normal;font-weight:700;border-bottom:3px solid var(--red)}
 
   /* 03 Links */
   .links{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
@@ -165,6 +171,8 @@
   .sign{font-family:var(--display);font-size:30px;letter-spacing:.04em;line-height:1.1;color:var(--yellow)}
   .foot-bot{display:flex;justify-content:space-between;gap:16px;margin-top:32px;padding-top:22px;border-top:2px solid #2A2933;color:#A8A5B2;font-size:14px;flex-wrap:wrap}
   .foot-bot .px{width:14px;height:14px;color:var(--red);margin:0 4px}
+  .foot-link{color:var(--yellow);text-decoration:none;font-weight:700}
+  .foot-link:hover{text-decoration:underline;text-underline-offset:3px}
 
   /* Scroll reveal */
   .anim .rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
@@ -277,6 +285,12 @@
         <p class="big rv">Holy Grawlix Games is a solo independent studio built on more than 25 years of professional AAA game development.</p>
         <p class="rv">After helping ship many games, it’s time for something personal: taking that hard-earned experience and putting it into a new game, made independently.</p>
         <p class="rv">A small studio with a long history of getting games into players’ hands.</p>
+        <a class="consult panel rv" href="https://respeclabs.com/" target="_blank" rel="noopener">
+          <span class="label">Side quest</span>
+          <strong>Want that XP on your team?</strong>
+          <span>I also help studios, leads, and schools through my consulting practice, Respec Labs.</span>
+          <em>Visit Respec Labs ↗</em>
+        </a>
       </div>
     </div>
   </section>
@@ -325,7 +339,7 @@
       <img src="/brand/logo/holygrawlix-horizontal-dark.svg" alt="Holy Grawlix Games" width="316" height="56">
       <p class="sign">Small studio. Big game energy.</p>
     </div>
-    <div class="foot-bot"><span>© 2026 Holy Grawlix Games</span><span>Made with <i class="px" data-px="heart" aria-label="love"></i> and a lot of coffee</span></div>
+    <div class="foot-bot"><span>© 2026 Holy Grawlix Games · Consulting: <a class="foot-link" href="https://respeclabs.com/" target="_blank" rel="noopener">Respec Labs ↗</a></span><span>Made with <i class="px" data-px="heart" aria-label="love"></i> and a lot of coffee</span></div>
   </div>
 </footer>
 

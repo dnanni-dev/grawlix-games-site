@@ -39,6 +39,10 @@
   .dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(255,77,77,.6);animation:pulse 1.8s ease-out infinite}
   @keyframes pulse{to{box-shadow:0 0 0 12px rgba(255,77,77,0)}}
   footer{padding:24px 16px;text-align:center;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+  footer a{color:var(--yellow);text-decoration:none;font-weight:700;white-space:nowrap}
+  footer a:hover{text-decoration:underline;text-underline-offset:3px}
+  footer .sep{margin:0 .6em}
+  @media (max-width:560px){footer .sep{display:block;height:4px;visibility:hidden}}
   @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -49,7 +53,7 @@
   <p class="lead">Something's brewing. <b>Holy Grawlix Games</b> is building worlds worth swearing about. Watch this space.</p>
   <p class="status"><span class="dot" aria-hidden="true"></span>In development</p>
 </main>
-<footer>&copy; 2026 Holy Grawlix Games</footer>
+<footer>&copy; 2026 Holy Grawlix Games<span class="sep">&middot;</span>Need game dev expertise on your team? <a href="https://respeclabs.com/" target="_blank" rel="noopener">Respec Labs &#8599;</a></footer>
 <script>
   // Every so often, swap one symbol in the grawlix for another.
   (function () {
