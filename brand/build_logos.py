@@ -189,7 +189,8 @@ def icon_v3(kind, bg=None):
             x = (px / 100 - .5) * w; y = (py / 100 - .5) * h
             pts.append(f'{c + x*math.cos(a) - y*math.sin(a):.1f},{c + x*math.sin(a) + y*math.cos(a):.1f}')
         body += f'<polygon points="{" ".join(pts)}" fill="{YELLOW}" stroke="{stroke}" stroke-width="{sw}" stroke-linejoin="round"/>'
-        body += centered_text('#!', c, c, 200 * k, BLACK, 4)
+        # sized for an even ~6% margin to the border (tightest at the top of '!' and the bottom of '#')
+        body += centered_text('#!', c - 3 * k, c + 3 * k, 232 * k, BLACK, 4)
     return svg(W, W, body, 'Holy Grawlix Games icon')
 
 if len(sys.argv) > 3 and sys.argv[3] == 'icon-v3':
