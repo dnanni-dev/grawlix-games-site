@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holy Grawlix Games | Small studio. Big game energy.</title>
+<meta name="description" content="Holy Grawlix Games is a solo independent game studio built on 25+ years of AAA game development. Something good is brewing.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F4F1EA">
+<link rel="icon" type="image/svg+xml" href="/brand/logo/holygrawlix-icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/brand/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Silkscreen&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('anim');</script>
+<style>
+  :root{
+    --paper:#F4F1EA; --paper-2:#EBE5D7; --ink:#0B0B10; --muted:#56545E;
+    --yellow:#FFD23F; --red:#E8392E; --blue:#2F55D4;
+    --display:Bangers,Impact,sans-serif; --pixel:Silkscreen,ui-monospace,monospace; --body:"Space Grotesk",system-ui,sans-serif;
+    --line:3px; --shadow:6px 6px 0 var(--ink); --gutter:40px; --max:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;overflow-x:hidden}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:calc(var(--max) + var(--gutter)*2);margin:0 auto;padding:0 var(--gutter)}
+  .dots{background-image:radial-gradient(rgba(11,11,16,.16) 1.3px,transparent 1.6px);background-size:11px 11px}
+  .panel{border:var(--line) solid var(--ink);box-shadow:var(--shadow)}
+  .label{font-family:var(--pixel);font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+  .px{display:inline-block;vertical-align:middle;image-rendering:pixelated}
+  .px svg{display:block;width:100%;height:100%;shape-rendering:crispEdges}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:24px;letter-spacing:.04em;text-decoration:none;padding:12px 22px 10px;border:var(--line) solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s;cursor:pointer;line-height:1}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  .btn-yellow{background:var(--yellow);color:var(--ink)}
+  .btn-ink{background:var(--ink);color:var(--yellow)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:var(--line) solid var(--ink)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px}
+  .logo img{height:46px;width:auto}
+  nav{display:flex;align-items:center;gap:32px}
+  nav a:not(.btn){font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+  nav a:not(.btn):hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--red)}
+  nav .btn{font-size:20px;padding:9px 16px 7px}
+
+  /* Hero */
+  .hero{padding:72px 0 88px}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--muted)}
+  h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,8.4vw,124px);line-height:.9;letter-spacing:.01em;margin:18px 0 26px}
+  h1 .red-text{color:var(--red)}
+  h1 .red{color:var(--red);position:relative;display:inline-block}
+  h1 .red svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.22em;overflow:visible}
+  .intro{font-size:22px;max-width:520px}
+  .intro b{font-weight:700}
+  .hero-actions{display:flex;align-items:center;gap:28px;margin-top:34px;flex-wrap:wrap}
+  .aside{display:flex;align-items:center;gap:12px;color:var(--muted);font-family:var(--pixel);font-size:13px;text-transform:uppercase;line-height:1.5}
+
+  .hero-panel{position:relative;aspect-ratio:1/1.02;background:var(--paper-2);display:flex;align-items:center;justify-content:center;transform:rotate(1.2deg)}
+  .hero-panel .dots-blue{position:absolute;inset:0;background-image:radial-gradient(rgba(47,85,212,.22) 1.4px,transparent 1.7px);background-size:12px 12px}
+  .narration{position:absolute;top:-3px;left:-3px;background:var(--yellow);border:var(--line) solid var(--ink);padding:10px 14px 8px;font-family:var(--display);font-size:20px;letter-spacing:.05em;line-height:1.05}
+  .balloon{position:absolute;right:4%;bottom:4.5%;background:#fff;border:var(--line) solid var(--ink);border-radius:50%/44%;padding:16px 26px;font-family:var(--display);font-size:24px;letter-spacing:.03em;line-height:1;transform:rotate(-3deg)}
+  .balloon::after{content:"";position:absolute;left:20%;bottom:-20px;width:26px;height:26px;background:#fff;border-right:var(--line) solid var(--ink);border-bottom:var(--line) solid var(--ink);transform:skewX(32deg) rotate(10deg)}
+  .spark{position:absolute;width:28px;height:28px;color:var(--ink)}
+  .spark.s1{top:16%;right:12%}.spark.s2{bottom:30%;left:9%;width:20px;height:20px;color:var(--red)}.spark.s3{top:28%;left:16%;width:16px;height:16px;color:var(--blue)}
+
+  /* Live logo (same rules as the landing page): one line when wide, three rows otherwise */
+  .glogo{font-family:var(--display);font-weight:400;line-height:.9;letter-spacing:.02em;display:flex;flex-direction:column;align-items:center;gap:.1em;font-size:clamp(56px,9vw,112px);position:relative}
+  .burst{position:relative;display:inline-block;color:var(--ink);padding:.12em .32em .02em;transform:rotate(-4deg);isolation:isolate}
+  .burst::before,.burst::after{content:"";position:absolute;z-index:-1;clip-path:polygon(0% 18%,9% 0%,24% 12%,38% 0%,52% 10%,66% 0%,80% 12%,93% 2%,100% 20%,94% 38%,100% 56%,94% 74%,100% 92%,84% 88%,70% 100%,56% 90%,42% 100%,28% 90%,14% 100%,4% 84%,0% 64%,6% 44%)}
+  .burst::before{inset:-.1em -.08em;background:var(--ink)}
+  .burst::after{inset:-.06em -.04em;background:var(--yellow)}
+  .burst span{display:inline-block;min-width:.55em}
+  .anim .burst span{animation:jitter 2.4s steps(1) infinite}
+  .burst span:nth-child(2){animation-delay:-.6s}.burst span:nth-child(3){animation-delay:-1.2s}.burst span:nth-child(4){animation-delay:-1.8s}
+  @keyframes jitter{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(-1px,2px) rotate(-6deg)}50%{transform:translate(2px,-1px) rotate(5deg)}75%{transform:translate(-2px,-2px) rotate(-3deg)}}
+
+  /* Ticker */
+  .ticker{background:var(--ink);color:var(--yellow);border-top:var(--line) solid var(--ink);border-bottom:var(--line) solid var(--ink);overflow:hidden;white-space:nowrap}
+  .ticker-track{display:inline-flex;gap:36px;padding:16px 0;font-family:var(--pixel);font-size:18px;text-transform:uppercase}
+  .anim .ticker-track{animation:tick 38s linear infinite}
+  .ticker-track span{display:inline-flex;align-items:center;gap:36px}
+  .ticker .px{width:14px;height:14px;color:var(--red)}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* Sections */
+  section{padding:112px 0}
+  .sec-label{display:inline-flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:14px}
+  .sec-label b{color:var(--red);font-weight:400}
+  h2{font-family:var(--display);font-weight:400;font-size:clamp(48px,6vw,84px);line-height:.95;letter-spacing:.01em}
+  h2 em{font-style:normal;color:var(--red)}
+  .lede{font-size:21px;max-width:560px;margin-top:22px}
+
+  /* 01 Project */
+  .project .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .promise{margin-top:18px;font-weight:700}
+  .status{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:8px 14px;background:var(--paper);border:var(--line) solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+  .status i{width:10px;height:10px;background:var(--red);display:inline-block}
+  .anim .status i{animation:blink 1.1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .cart{position:relative;background:var(--ink);color:var(--paper);padding:30px;transform:rotate(-1.2deg)}
+  .cart::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 4px);pointer-events:none}
+  .cart-top{display:flex;justify-content:space-between;color:#B9B6C2}
+  .screen{margin:22px 0;border:var(--line) solid var(--yellow);background:#14141C;aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+  .qqq{font-family:var(--pixel);font-size:clamp(64px,8vw,104px);line-height:1;color:var(--yellow)}
+  .soon{font-family:var(--display);font-size:34px;letter-spacing:.05em;color:var(--red)}
+  .cursor{display:inline-block;width:.5em;height:.9em;background:var(--yellow);vertical-align:-.1em;margin-left:.1em}
+  .anim .cursor{animation:blink 1s steps(1) infinite}
+  .cart-cap{color:#B9B6C2}
+
+  /* 02 About */
+  .about{border-top:var(--line) solid var(--ink);border-bottom:var(--line) solid var(--ink);background:var(--yellow)}
+  .about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+  .stat{background:var(--paper);padding:22px 22px 18px}
+  .stat b{display:block;font-family:var(--display);font-weight:400;font-size:84px;line-height:.9;color:var(--ink)}
+  .stat b span{color:var(--red)}
+  .stat small{display:block;margin-top:8px;font-family:var(--pixel);font-size:13px;text-transform:uppercase;line-height:1.4}
+  .xp{margin-top:20px;background:var(--paper);padding:16px 18px}
+  .xp-row{display:flex;justify-content:space-between;margin-bottom:10px}
+  .xp-bar{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;height:28px;border:var(--line) solid var(--ink);padding:3px;background:var(--paper)}
+  .xp-bar i{background:var(--blue)}
+  .anim .xp-bar i{transform:scaleY(0);transform-origin:bottom;transition:transform .25s steps(2)}
+  .anim .xp.in .xp-bar i{transform:none}
+  .copy p{font-size:20px;margin-bottom:18px}
+  .copy p.big{font-size:24px;font-weight:700;line-height:1.4}
+
+  /* 03 Links */
+  .links{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+  .link{display:block;background:var(--paper);padding:26px 24px;text-decoration:none;transition:transform .15s}
+  .link:nth-child(1){transform:rotate(-1deg)}.link:nth-child(2){transform:rotate(.8deg)}.link:nth-child(3){transform:rotate(-.6deg)}
+  .link:hover{transform:rotate(0) translateY(-4px)}
+  .link strong{display:block;font-family:var(--display);font-weight:400;font-size:40px;letter-spacing:.02em;line-height:1}
+  .link span{display:block;margin-top:8px;color:var(--muted);font-size:17px}
+  .link .tag{display:inline-block;margin-bottom:14px;padding:2px 8px;background:var(--ink);color:var(--yellow);font-family:var(--pixel);font-size:12px;text-transform:uppercase}
+
+  /* 04 Contact */
+  .contact-sec{background:var(--paper-2)}
+  .contact-sec .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+  .note{margin-top:22px;color:var(--muted)}
+  form{background:var(--paper);padding:30px;display:flex;flex-direction:column;gap:18px;position:relative}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  label{display:flex;flex-direction:column;gap:8px;font-family:var(--pixel);font-size:13px;text-transform:uppercase}
+  input,textarea{font:inherit;font-family:var(--body);font-size:17px;text-transform:none;color:var(--ink);background:#fff;border:var(--line) solid var(--ink);padding:12px 14px;border-radius:0;resize:vertical}
+  input:focus,textarea:focus{outline:none;box-shadow:4px 4px 0 var(--yellow),4px 4px 0 calc(var(--line)) var(--ink)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .cf-turnstile:empty{display:none}
+  .form-foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .form-status{font-weight:700}
+  .form-status:empty{display:none}
+  .form-status.ok{color:#1E7A3A}.form-status.err{color:var(--red)}.form-status.warn{color:var(--muted)}
+  form .btn:disabled{opacity:.7;cursor:default;transform:none}
+
+  /* Footer */
+  footer{background:var(--ink);color:var(--paper);padding:56px 0 40px}
+  .foot-top{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+  .foot-top img{height:56px;width:auto}
+  .sign{font-family:var(--display);font-size:30px;letter-spacing:.04em;line-height:1.1;color:var(--yellow)}
+  .foot-bot{display:flex;justify-content:space-between;gap:16px;margin-top:32px;padding-top:22px;border-top:2px solid #2A2933;color:#A8A5B2;font-size:14px;flex-wrap:wrap}
+  .foot-bot .px{width:14px;height:14px;color:var(--red);margin:0 4px}
+
+  /* Scroll reveal */
+  .anim .rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+  .anim .rv.in{opacity:1;transform:none}
+  .anim .rv.pop{transform:translateY(16px) scale(.94) rotate(var(--r,0deg))}
+  .anim .rv.pop.in{transform:rotate(var(--r,0deg))}
+  a:focus-visible,.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+  @media (max-width:980px){
+    .hero .wrap,.project .wrap,.about .wrap,.contact-sec .wrap{grid-template-columns:1fr;gap:48px}
+    .hero-panel{max-width:520px;width:100%;margin:0 auto}
+    .links{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    :root{--gutter:16px;--shadow:4px 4px 0 var(--ink)}
+    body{font-size:17px}
+    header .wrap{height:68px}
+    .logo img{height:32px}
+    nav a:not(.btn){display:none}
+    nav .btn{font-size:17px;padding:7px 12px 5px}
+    .hero{padding:44px 0 64px}
+    .intro{font-size:19px}
+    section{padding:72px 0}
+    .lede,.copy p{font-size:18px}
+    .copy p.big{font-size:20px}
+    .row,.stats{grid-template-columns:1fr}
+    .stat b{font-size:68px}
+    form,.cart{padding:20px}
+    .balloon{font-size:19px;padding:12px 18px}
+    .narration{font-size:16px}
+    .foot-top img{height:44px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Holy Grawlix Games home"><img src="/brand/logo/holygrawlix-horizontal-light.svg" alt="Holy Grawlix Games" width="260" height="46"></a>
+    <nav aria-label="Main">
+      <a href="#project">The project</a>
+      <a href="#studio">The studio</a>
+      <a class="btn btn-yellow" href="#contact">Let’s talk ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow label"><i class="px" data-px="spark" style="width:14px;height:14px;color:var(--red)"></i>Independent studio. Industry roots.</p>
+        <h1>Small studio.<br><span class="red-text">Big game <span class="red">energy.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 60 4, 140 6, 297 9" fill="none" stroke="#E8392E" stroke-width="7" stroke-linecap="round"/></svg></span></span></h1>
+        <p class="intro"><b>One developer. 25+ years in AAA.</b> Now making games independently, with all of that experience and none of the committee.</p>
+        <div class="hero-actions">
+          <a class="btn btn-ink" href="#project">See what’s next ↓</a>
+          <p class="aside">A little loud.<br>By design.</p>
+        </div>
+      </div>
+      <div class="hero-panel panel" aria-hidden="true">
+        <div class="dots-blue"></div>
+        <p class="narration">Meanwhile, at a tiny<br>indie studio…</p>
+        <i class="px spark s1" data-px="spark"></i><i class="px spark s2" data-px="spark"></i><i class="px spark s3" data-px="spark"></i>
+        <div class="glogo"><span>Holy</span><span class="burst"><span>#</span><span>$</span><span>@</span><span>!</span></span><span>Games</span></div>
+        <p class="balloon">Something’s brewing!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-label="Solo developed. AAA experience. Gameplay first. Something new is coming.">
+    <div class="ticker-track" aria-hidden="true"></div>
+  </div>
+
+  <section class="project" id="project">
+    <div class="wrap">
+      <div>
+        <p class="sec-label label rv"><b>01</b> / The next chapter</p>
+        <h2 class="rv">Something good<br>is <em>brewing.</em></h2>
+        <p class="lede rv">The first Holy Grawlix Games project is taking shape. It’s built gameplay-first, by someone who has spent a career learning what makes players stay.</p>
+        <p class="promise rv">A new game. More to come.</p>
+        <p class="status label rv"><i aria-hidden="true"></i>In development</p>
+      </div>
+      <div class="cart panel rv pop" style="--r:-1.2deg">
+        <div class="cart-top label"><span>Holy Grawlix Games</span><span>Project 001</span></div>
+        <div class="screen">
+          <p class="qqq" aria-label="Unannounced">???<span class="cursor" aria-hidden="true"></span></p>
+          <p class="soon">Coming soon</p>
+        </div>
+        <p class="cart-cap label">Not ready to show. Ready to surprise.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="studio">
+    <div class="wrap">
+      <div>
+        <p class="sec-label label rv" style="color:var(--ink)"><b>02</b> / The human behind the games</p>
+        <h2 class="rv">One person.<br>A lot of <em>XP.</em></h2>
+        <div class="stats">
+          <div class="stat panel rv pop" style="--r:-1deg"><b>25<span>+</span></b><small>Years in AAA<br>development</small></div>
+          <div class="stat panel rv pop" style="--r:1deg;--d:.1s"><b>01</b><small>Independent<br>developer</small></div>
+        </div>
+        <div class="xp panel rv" id="xp">
+          <div class="xp-row label"><span>XP</span><span>Lvl 25 · Max</span></div>
+          <div class="xp-bar" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="copy">
+        <p class="big rv">Holy Grawlix Games is a solo independent studio built on more than 25 years of professional AAA game development.</p>
+        <p class="rv">After helping ship many games, it’s time for something personal: taking that hard-earned experience and putting it into a new game, made independently.</p>
+        <p class="rv">A small studio with a long history of getting games into players’ hands.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="company">
+    <div class="wrap">
+      <p class="sec-label label rv"><b>03</b> / Good company</p>
+      <h2 class="rv">There’s a whole<br>world to <em>play.</em></h2>
+      <p class="lede rv">While you wait, here’s where we find our next favorite game.</p>
+      <div class="links">
+        <a class="link panel rv" href="https://store.steampowered.com/" target="_blank" rel="noopener"><span class="tag">PC</span><strong>Steam ↗</strong><span>Explore PC games</span></a>
+        <a class="link panel rv" href="https://itch.io/" target="_blank" rel="noopener" style="--d:.1s"><span class="tag">Indie</span><strong>itch.io ↗</strong><span>Discover independent games</span></a>
+        <a class="link panel rv" href="https://www.gamedeveloper.com/" target="_blank" rel="noopener" style="--d:.2s"><span class="tag">Craft</span><strong>Game Developer ↗</strong><span>Inside the craft of making games</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-sec dots" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="sec-label label rv"><b>04</b> / Open a conversation</p>
+        <h2 class="rv">Let’s <em>talk.</em></h2>
+        <p class="lede rv">Press, potential collaborators, fellow developers, or just a friendly hello. I’d love to hear from you.</p>
+        <p class="note label rv">Direct to the person making the game.</p>
+      </div>
+      <form class="panel rv" id="contact-form" novalidate>
+        <div class="row">
+          <label>Your name<input name="name" type="text" autocomplete="name" maxlength="100" required></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" maxlength="200" placeholder="you@example.com" required></label>
+        </div>
+        <label>What’s on your mind?<textarea name="message" rows="5" maxlength="5000" required></textarea></label>
+        <label class="hp" aria-hidden="true">Company<input name="company" type="text" tabindex="-1" autocomplete="off"></label>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAF66YpJLXZhi7pvC" data-theme="light" data-size="flexible" data-appearance="interaction-only"></div>
+        <div class="form-foot">
+          <button class="btn btn-yellow" type="submit">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <img src="/brand/logo/holygrawlix-horizontal-dark.svg" alt="Holy Grawlix Games" width="316" height="56">
+      <p class="sign">Small studio. Big game energy.</p>
+    </div>
+    <div class="foot-bot"><span>© 2026 Holy Grawlix Games</span><span>Made with <i class="px" data-px="heart" aria-label="love"></i> and a lot of coffee</span></div>
+  </div>
+</footer>
+
+<script>
+  // Pixel-art icons drawn from tiny maps ('#' = filled pixel), coloured with currentColor.
+  (function () {
+    var maps = {
+      spark: ['...#...', '...#...', '...#...', '###.###', '...#...', '...#...', '...#...'],
+      heart: ['.##.##.', '#######', '#######', '.#####.', '..###..', '...#...']
+    };
+    document.querySelectorAll('[data-px]').forEach(function (el) {
+      var m = maps[el.dataset.px]; if (!m) return;
+      var w = m[0].length, h = m.length, r = '';
+      m.forEach(function (row, y) { for (var x = 0; x < w; x++) if (row[x] === '#') r += '<rect x="' + x + '" y="' + y + '" width="1" height="1"/>'; });
+      el.innerHTML = '<svg viewBox="0 0 ' + w + ' ' + h + '" fill="currentColor" aria-hidden="true">' + r + '</svg>';
+    });
+  })();
+
+  // Ticker (content doubled for a seamless loop) and XP bar segments
+  (function () {
+    var items = ['Solo developed', 'AAA experience', 'Gameplay first', 'Something new is coming'];
+    var one = items.map(function (t) { return '<span>' + t + '<i class="px" data-tick></i></span>'; }).join('');
+    var track = document.querySelector('.ticker-track'); track.innerHTML = one + one + one + one;
+    track.querySelectorAll('[data-tick]').forEach(function (el) { el.dataset.px = 'spark'; el.innerHTML = '<svg viewBox="0 0 7 7" fill="currentColor"><rect x="3" y="0" width="1" height="3"/><rect x="0" y="3" width="3" height="1"/><rect x="4" y="3" width="3" height="1"/><rect x="3" y="4" width="1" height="3"/></svg>'; });
+    var bar = document.querySelector('.xp-bar'); for (var i = 0; i < 20; i++) { var s = document.createElement('i'); s.style.transitionDelay = (i * 0.04) + 's'; bar.appendChild(s); }
+  })();
+
+  // Grawlix symbols in the hero logo swap now and then
+  (function () {
+    if (!document.documentElement.classList.contains('anim')) return;
+    var chars = '#$@!%&*?', spans = document.querySelectorAll('.glogo .burst span');
+    setInterval(function () {
+      var s = spans[Math.floor(Math.random() * spans.length)], c;
+      do { c = chars[Math.floor(Math.random() * chars.length)]; } while (c === s.textContent);
+      s.textContent = c;
+    }, 900);
+  })();
+
+  // Scroll reveal
+  (function () {
+    if (!document.documentElement.classList.contains('anim') || !('IntersectionObserver' in window)) { document.querySelectorAll('.rv,.xp').forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.rv').forEach(function (e) { io.observe(e); });
+  })();
+
+  // Contact form: sends straight from the site (same Cloudflare contact function as respeclabs.com)
+  (function () {
+    var form = document.getElementById('contact-form'), status = form.querySelector('.form-status'), btn = form.querySelector('button');
+    function say(m, k) { status.textContent = m; status.className = 'form-status ' + (k || ''); }
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var token = (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '';
+      if (!token) { say('One sec, running a quick spam check. Press Send again.', 'warn'); return; }
+      btn.disabled = true; btn.textContent = 'Sending…'; say('');
+      try {
+        var res = await fetch('https://respeclabs-contact.dan-nanni.workers.dev/', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: form.name.value, email: form.email.value, message: form.message.value, company: form.company.value, token: token }) });
+        var out = await res.json().catch(function () { return {}; });
+        if (res.ok && out.ok) { form.reset(); btn.textContent = 'Sent!'; say('Thanks! Message received. I’ll get back to you soon.', 'ok'); return; }
+        throw new Error(out.error || 'Send failed');
+      } catch (err) {
+        say((err && err.message && err.message !== 'Failed to fetch' ? err.message : 'Something went wrong.') + ' Please try again in a moment.', 'err');
+        btn.disabled = false; btn.textContent = 'Send message';
+      } finally { if (window.turnstile) window.turnstile.reset(); }
+    });
+  })();
+</script>
+</body>
+</html>

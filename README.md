@@ -1,6 +1,14 @@
 # Holy Grawlix Games: site
 
-Source for [holygrawlix.com](https://holygrawlix.com). The current `index.html` is the temporary "in development" page and the aesthetic direction for the main site (Bangers display type, comic burst, black / cream / yellow).
+Source for the Holy Grawlix Games websites.
+
+| Path | What it is | Live at |
+|---|---|---|
+| `index.html` | Temporary "in development" landing page | [holygrawlix.com](https://holygrawlix.com) |
+| `site/index.html` | Full studio site (comic-book + 16-bit direction) | [grawlix-games.pages.dev](https://grawlix-games.pages.dev) |
+| `archive/grawlix-figma-v1/` | The earlier "Grawlix Games" site, kept for reference | [grawlix-games.pages.dev/archive](https://grawlix-games.pages.dev/archive) |
+
+Both live sites read their files straight from this repo's `main` branch, so a push goes live within a few minutes. Both are hidden from search engines for now. The contact form posts to the `respeclabs-contact` Cloudflare Worker (source in the respeclabs-site repo), which emails hello@respeclabs.com with "[Holy Grawlix]" in the subject.
 
 ## Brand (`brand/`)
 
