@@ -19,6 +19,7 @@ Both live sites read their files straight from this repo's `main` branch, so a p
 | `logo/holygrawlix-icon.svg` | Icon-only mark: "#!" in the logo's burst shape, transparent (favicon). Deliberately irregular, not a regular toothed badge |
 | `logo/icon-options/` | Alternative icon shapes (speech balloon, shout balloon) kept for comparison |
 | `logo/holygrawlix-icon-app.svg` | Icon on a dark rounded square (app / social avatar) |
+| `logo/email/` | Personal email signature: stacked logo, Daniele Nanni, Founder & Game Director (600x150, plus `@2x`) |
 | `icons/` | Favicons (32, 48), Apple touch icon (180), 192 / 512 app icons |
 
 `dark` = for dark backgrounds (cream letters); `light` = for light backgrounds (black letters).
