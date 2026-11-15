@@ -13,12 +13,14 @@ body{width:1640px;height:624px;overflow:hidden;position:relative;background:#F4F
 .logo{position:absolute;left:50%;top:50%;width:1340px;transform:translate(-50%,-50%) rotate(-1deg)}
 .balloon{position:absolute;right:30px;top:30px;background:#fff;border:6px solid #0B0B10;border-radius:50%/44%;padding:20px 40px 16px;font-family:Bangers;font-size:56px;letter-spacing:.04em;line-height:1;transform:rotate(-3deg)}
 .balloon::after{content:"";position:absolute;left:24%;bottom:-38px;width:42px;height:42px;background:#fff;border-right:6px solid #0B0B10;border-bottom:6px solid #0B0B10;transform:skewX(32deg) rotate(10deg)}
+.url{position:absolute;left:40px;bottom:30px;background:#0B0B10;color:#FFD23F;padding:12px 26px 10px;font-family:'Space Grotesk';font-weight:700;font-size:50px;letter-spacing:.01em;line-height:1;transform:rotate(-1deg);box-shadow:6px 6px 0 #E8392E}
 </style>
 <div class="grid"></div>
 <div class="panel"><div class="dots"></div>
  <div class="narr">MEANWHILE, AT A TINY INDIE STUDIO…</div>
- ${spark('#2F55D4',52,70,430)}${spark('#E8392E',56,1390,420)}${spark("#0B0B10",46,1420,250)}
+ ${spark('#2F55D4',44,80,200)}${spark('#E8392E',56,1390,420)}${spark("#0B0B10",46,1420,250)}
  <img class="logo" src="${logo}">
+ <div class="url">holygrawlix.com</div>
  <div class="balloon">SOMETHING'S BREWING!</div>
 </div>`;
 (async()=>{const b=await chromium.launch(); const p=await b.newPage({viewport:{width:1640,height:624}}); await p.setContent(html); await p.evaluate(()=>document.fonts.ready); await p.waitForTimeout(400); await p.screenshot({path:OUT+'cover-1640x624.png'});
