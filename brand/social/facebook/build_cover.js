@@ -13,16 +13,16 @@ body{width:1640px;height:624px;overflow:hidden;position:relative;background:#F4F
 .logo{position:absolute;left:50%;top:50%;width:1340px;transform:translate(-50%,-50%) rotate(-1deg)}
 .balloon{position:absolute;right:30px;top:30px;background:#fff;border:6px solid #0B0B10;border-radius:50%/44%;padding:20px 40px 16px;font-family:Bangers;font-size:56px;letter-spacing:.04em;line-height:1;transform:rotate(-3deg)}
 .balloon::after{content:"";position:absolute;left:24%;bottom:-38px;width:42px;height:42px;background:#fff;border-right:6px solid #0B0B10;border-bottom:6px solid #0B0B10;transform:skewX(32deg) rotate(10deg)}
-.url{position:absolute;left:40px;bottom:30px;background:#0B0B10;color:#FFD23F;padding:12px 26px 10px;font-family:'Space Grotesk';font-weight:700;font-size:50px;letter-spacing:.01em;line-height:1;transform:rotate(-1deg);box-shadow:6px 6px 0 #E8392E}
+.url{position:absolute;right:30px;bottom:34px;background:#0B0B10;color:#FFD23F;padding:12px 26px 10px;font-family:'Space Grotesk';font-weight:700;font-size:50px;letter-spacing:.01em;line-height:1;transform:rotate(-1deg);box-shadow:6px 6px 0 #E8392E}
 </style>
 <div class="grid"></div>
 <div class="panel"><div class="dots"></div>
  <div class="narr">MEANWHILE, AT A TINY INDIE STUDIO…</div>
- ${spark('#2F55D4',44,80,200)}${spark('#E8392E',56,1390,420)}${spark("#0B0B10",46,1420,250)}
+ ${spark('#2F55D4',40,250,440)}${spark('#E8392E',50,70,430)}${spark("#0B0B10",46,1420,250)}
  <img class="logo" src="${logo}">
  <div class="url">holygrawlix.com</div>
  <div class="balloon">SOMETHING'S BREWING!</div>
 </div>`;
 (async()=>{const b=await chromium.launch(); const p=await b.newPage({viewport:{width:1640,height:624}}); await p.setContent(html); await p.evaluate(()=>document.fonts.ready); await p.waitForTimeout(400); await p.screenshot({path:OUT+'cover-1640x624.png'});
 const C='data:image/png;base64,'+fs.readFileSync(OUT+'cover-1640x624.png').toString('base64'); const P='data:image/png;base64,'+fs.readFileSync(OUT+'profile-720.png').toString('base64');
-const q=await b.newPage({viewport:{width:1250,height:520}}); await q.setContent(`<body style="margin:0;background:#242526;font:14px sans-serif;color:#ccc;padding:10px;display:flex;gap:20px;align-items:flex-start"><div><div>Phone feed, actual size (390pt wide)</div><img src="${C}" style="width:390px;display:block"></div><div><div>Desktop page header</div><div style="position:relative;width:820px;height:312px;background:url(${C}) center/cover"><img src="${P}" style="position:absolute;left:345px;top:225px;width:130px;border-radius:50%;border:4px solid #fff"></div></div></body>`); await q.screenshot({path:'fbprev3.png'}); await b.close();})();
+const q=await b.newPage({viewport:{width:1680,height:400}}); await q.setContent(`<body style="margin:0;background:#242526;font:14px sans-serif;color:#ccc;padding:10px;display:flex;gap:20px;align-items:flex-start"><div><div>Phone feed, actual size (390pt wide)</div><img src="${C}" style="width:390px;display:block"></div><div><div>Phone page header</div><div style="position:relative;width:390px;height:150px;background:url(${C}) center/cover"><div style="position:absolute;left:0;right:0;top:0;height:34px;background:linear-gradient(rgba(0,0,0,.5),transparent)"></div><img src="${P}" style="position:absolute;left:14px;top:118px;width:80px;border-radius:50%;border:3px solid #242526"></div></div><div><div>Desktop page header</div><div style="position:relative;width:820px;height:312px;background:url(${C}) center/cover"><img src="${P}" style="position:absolute;left:345px;top:225px;width:130px;border-radius:50%;border:4px solid #fff"></div></div></body>`); await q.screenshot({path:'fbprev3.png'}); await b.close();})();
